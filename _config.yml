@@ -16,7 +16,7 @@ plugins:
   - jekyll-remote-theme
 
 url    : "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/rebengasse"
 
 title      : Privatverkauf
 email      : graz.apartment@proton.me #this is also the email contact forms will go to
