@@ -1,0 +1,19 @@
+current directory: /home/bulbul/Documents/bulbul_workspace_laptop/bulbul_dev_wrkspace_laptop/graz-apartment-site/testsite/agency-jekyll-theme/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+/usr/bin/ruby3.2 -I/usr/lib/ruby/vendor_ruby extconf.rb
+creating Makefile
+
+current directory: /home/bulbul/Documents/bulbul_workspace_laptop/bulbul_dev_wrkspace_laptop/graz-apartment-site/testsite/agency-jekyll-theme/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260127-181526-rwmest sitelibdir\=./.gem.20260127-181526-rwmest clean
+
+current directory: /home/bulbul/Documents/bulbul_workspace_laptop/bulbul_dev_wrkspace_laptop/graz-apartment-site/testsite/agency-jekyll-theme/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260127-181526-rwmest sitelibdir\=./.gem.20260127-181526-rwmest
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.so
+
+current directory: /home/bulbul/Documents/bulbul_workspace_laptop/bulbul_dev_wrkspace_laptop/graz-apartment-site/testsite/agency-jekyll-theme/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260127-181526-rwmest sitelibdir\=./.gem.20260127-181526-rwmest install
+/usr/bin/install -c -m 0755 ruby_http_parser.so ./.gem.20260127-181526-rwmest
+
+current directory: /home/bulbul/Documents/bulbul_workspace_laptop/bulbul_dev_wrkspace_laptop/graz-apartment-site/testsite/agency-jekyll-theme/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260127-181526-rwmest sitelibdir\=./.gem.20260127-181526-rwmest clean

@@ -1,0 +1,29 @@
+- id: 01
+  title: "Vorraum"
+  caption: "Main Entrance"
+  image: "/assets/img/gallery/01.jpg"
+  thumb: "/assets/img/gallery/thumbs/01.jpg"
+  alt: "Wohnzimmer, Blick Richtung Fenster"
+
+- id: 02
+  title: "EinbauKüche"
+  caption: "Küche mit Stauraum und Arbeitsflächen."
+  image: "/assets/img/gallery/02.jpg"
+  thumb: "/assets/img/gallery/thumbs/02.jpg"
+  alt: "Küche mit Arbeitsflächen"
+
+- id: 03  
+  title: "Abstelleraum"
+  caption: "Küche mit Stauraum und Arbeitsflächen."
+  image: "/assets/img/gallery/03.jpg"
+  thumb: "/assets/img/gallery/thumbs/03.jpg"
+  alt: "Küche mit Arbeitsflächen"
+
+- id: 04
+  title: "Zimmer"
+  caption: "Zimmer III"
+  image: "/assets/img/gallery/04.jpg"
+  thumb: "/assets/img/gallery/thumbs/04.jpg"
+  alt: "Loggia"
+
+

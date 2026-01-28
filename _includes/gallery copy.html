@@ -1,0 +1,17 @@
+<section class="page-section" id="gallery">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Fotos</h2>
+      <h3 class="section-subheading text-muted">Ein Rundgang durch die Wohnung</h3>
+    </div>
+
+    <div class="gallery-grid">
+      {% assign images = site.static_files | where_exp: "f", "f.path contains 'assets/img/gallery/'" %}
+      {% for img in images %}
+        <a href="{{ img.path | relative_url }}" target="_blank" class="gallery-item">
+          <img src="{{ img.path | relative_url }}" alt="Foto der Wohnung" loading="lazy" />
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

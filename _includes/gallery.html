@@ -1,0 +1,124 @@
+<!-- Gallery -->
+{% if site.locale and site.locale != "" and site.locale != nil %}
+  {% assign g = site.data.sitetext[site.locale].gallery %}
+{% else %}
+  {% assign g = site.data.sitetext.gallery %}
+{% endif %}
+
+<section class="page-section" id="{{ g.section | default: "gallery" }}">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">
+          {{ g.title | default: "Fotos" }}
+        </h2>
+        {% if g.text %}
+          <h3 class="section-subheading text-muted">
+            {{ g.text }}
+          </h3>
+        {% endif %}
+      </div>
+    </div>
+
+    {%- comment -%}
+      Collect images once so we can use them for both:
+      1) thumbnail grid
+      2) carousel slides
+      We exclude the thumbs folder if you create one.
+    {%- endcomment -%}
+    {% assign gallery_images = "" | split: "" %}
+    {% for f in site.static_files %}
+      {% if f.path contains "assets/img/gallery/" and f.path contains ".jpg" or f.path contains ".jpeg" or f.path contains ".png" or f.path contains ".webp" %}
+        {% unless f.path contains "/thumbs/" %}
+          {% assign gallery_images = gallery_images | push: f %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+
+    <div class="gallery-grid">
+      {% if gallery_images.size > 0 %}
+        {% for f in gallery_images %}
+          <a class="gallery-item js-open-gallery"
+             href="#"
+             data-index="{{ forloop.index0 }}"
+             aria-label="Foto öffnen"
+             rel="noopener">
+            <div class="thumb-tile">
+              <img src="{{ f.path | relative_url }}" alt="Foto der Wohnung" loading="lazy" />
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        <div class="text-muted" style="font-size:14px;">
+          Keine Bilder gefunden. Bitte lege Bilder in <code>assets/img/gallery/</code> ab.
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+{% if gallery_images.size > 0 %}
+<!-- Fullscreen Modal + Carousel -->
+<div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document" style="max-width: 100%; margin: 0;">
+    <div class="modal-content" style="height: 100vh; border-radius: 0;">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Fotos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body p-0" style="height: calc(100vh - 56px);">
+        <div id="galleryCarousel"
+             class="carousel slide h-100"
+             data-ride="carousel"
+             data-interval="false"
+             data-touch="true">
+          <div class="carousel-inner h-100">
+            {% for f in gallery_images %}
+            <div class="carousel-item h-100 {% if forloop.first %}active{% endif %}">
+              <div class="d-flex align-items-center justify-content-center h-100" style="background:#000;">
+                <img src="{{ f.path | relative_url }}"
+                     alt="Foto der Wohnung"
+                     style="max-height: 90vh; width: auto; max-width: 100%;"
+                     loading="lazy" />
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <a class="carousel-control-prev" href="#galleryCarousel" role="button" data-slide="prev" aria-label="Vorheriges Bild">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next" href="#galleryCarousel" role="button" data-slide="next" aria-label="Nächstes Bild">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    // Open modal and jump carousel to clicked image
+    document.querySelectorAll('.js-open-gallery').forEach(function (el) {
+      el.addEventListener('click', function (evt) {
+        evt.preventDefault();
+        var index = parseInt(el.getAttribute('data-index'), 10) || 0;
+
+        // Show modal
+        $('#galleryModal').modal('show');
+
+        // Jump to the selected slide
+        $('#galleryCarousel').carousel(index);
+      });
+    });
+  })();
+</script>
+{% endif %}
+<!-- End Gallery -->
